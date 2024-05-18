@@ -41,18 +41,15 @@ function getCatsHandler(req, res) {
 
 // add cat to DB
 function addCatsHandler(req, res) {
-    const { name, origin, temperament, age, color, overview,image,gender} = req.body;
-    const sql = `INSERT INTO cats (name, origin, temperament, age, color, overview,image,gender) 
-                 VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING * ;`
-    const values = [name, origin, temperament, age, color, overview,image,gender];
+    const { name, origin, temperament, age, color, image,gender} = req.body;
+    const sql = `INSERT INTO cats (name, origin, temperament, age, color,image,gender) 
+                 VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING * ;`
+    const values = [name, origin, temperament, age, color, image,gender];
     client.query(sql, values).then((result) => {
         console.log(result.rows);
         res.status(201).json(result.rows)
     }).catch();
 }
-
-
-
 
 
 
