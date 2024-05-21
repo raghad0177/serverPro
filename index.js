@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Allow requests only from specified origins
-const allowedOrigins = ['http://localhost:3000', 'https://masar2024.netlify.app/'];
+const allowedOrigins = ['http://localhost:3000', 'https://masar2024.netlify.app/','https://main--masar2024.netlify.app/'];
 app.use((req, res, next) => {
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
