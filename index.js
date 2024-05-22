@@ -11,7 +11,7 @@ const client = new Client(url);
 
 // Create Express app
 const app = express();
-
+app.use(cors()); 
 // Middleware configurations
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
